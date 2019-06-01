@@ -1,7 +1,7 @@
 {
-  "name": "koa2-api-boilerplate",
+  "name": "QueroPratica",
   "version": "2.2.0",
-  "description": "Koa2 boilerplate covering essentials for APIs",
+  "description": "QueroBolsa Hackaton",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,25 +11,18 @@
     "docs": "./node_modules/.bin/apidoc -i src/ -o docs"
   },
   "keywords": [
-    "koa2-api-boilerplate",
-    "api",
-    "koa",
-    "koa2",
-    "boilerplate",
-    "es6",
-    "mongoose",
-    "passportjs",
-    "apidoc"
+    "querobolsa",
+    "queropratica"
   ],
-  "author": "Adrian Obelmejias <adrian@obel.me>",
+  "author": "Paulo Luan <pauloluan.inova@gmail.com>",
   "license": "MIT",
   "apidoc": {
-    "title": "koa2-api-boilerplate",
+    "title": "quero-pratica",
     "url": "localhost:5000"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrianObel/koa2-api-boilerplate"
+    "url": "https://github.com/queropratica/back.git"
   },
   "dependencies": {
     "apidoc": "^0.16.1",
