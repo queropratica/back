@@ -1,7 +1,7 @@
 import { ensureUser } from '../../middleware/validators'
 import * as project from './controller'
 
-export const baseUrl = '/project'
+export const baseUrl = '/projects'
 
 export default [
   {

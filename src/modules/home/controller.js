@@ -67,3 +67,9 @@ export async function seed (ctx) {
     response: 'CRIADO!!'
   }
 }
+
+export async function checkHealth (ctx) {
+  ctx.body = {
+    response: 'TÁ VIVO!!'
+  }
+}
