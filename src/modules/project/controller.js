@@ -1,6 +1,7 @@
 import Project from '../../models/Project'
 import {uploadFile} from '../../utils/filestack'
 import {get} from 'lodash'
+import MultipartRequest from '../../utils/MultipartRequest'
 
 const Controller = {
 
@@ -34,19 +35,11 @@ const Controller = {
   },
 
   uploadFile: async (ctx) => {
-    const file = ctx.request.files.file
-
+    const requestBody = await MultipartRequest.parse(ctx)
     console.log('=============================')
-    console.log(JSON.stringify(ctx.request))
+    console.log(JSON.stringify(requestBody))
     console.log('=============================')
-
-    const { key, url } = await uploadFile({
-      fileName: get(file, 'name'),
-      filePath: get(file, 'path'),
-      fileType: get(file, 'type')
-    })
-
-    ctx.body = { key, url }
+    ctx.body = { requestBody }
   }
 
 }
