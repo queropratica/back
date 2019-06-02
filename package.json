@@ -8,7 +8,9 @@
     "dev": "./node_modules/.bin/nodemon index.js",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill",
     "lint": "eslint src/**/*.js",
-    "docs": "./node_modules/.bin/apidoc -i src/ -o docs"
+    "docs": "./node_modules/.bin/apidoc -i src/ -o docs",
+    "mocha": "find ./test -name '*spec.js' | NODE_ENV=test xargs ./node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill -R spec",
+    "mocha-debug": "find ./test -name '*spec.js' | NODE_ENV=test xargs ./node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill -R spec --watch --inspect --debug-brk"
   },
   "keywords": [
     "querobolsa",
