@@ -2,6 +2,7 @@ import app from '../bin/server'
 import supertest from 'supertest'
 import { expect, should } from 'chai'
 import { cleanDb } from './utils'
+import ProjectCollection from '../src/models/Project'
 
 should()
 const request = supertest.agent(app.listen())
@@ -24,14 +25,10 @@ describe('Projects', () => {
   })
 
   describe('GET /project', () => {
-    it.only('should fetch the projects with the default url', async (done) => {
+    it.only('should fetch the projects with the default url', async () => {
       const result = await request
         .get('/project')
         .set('Accept', 'application/json')
-
-      console.log('=============================')
-      console.log(JSON.stringify(result))
-      console.log('=============================')
     })
 
     it('should not fetch project if the authorization header has invalid scheme', (done) => {

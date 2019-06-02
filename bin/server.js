@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
+import cors from '@koa/cors'
 import convert from 'koa-convert'
 import logger from 'koa-logger'
 import mongoose from 'mongoose'
@@ -21,6 +22,7 @@ app.use(convert(logger()))
 app.use(bodyParser())
 app.use(session())
 app.use(errorMiddleware())
+app.use(cors())
 
 app.use(convert(mount('/docs', serve(`${process.cwd()}/docs`))))
 

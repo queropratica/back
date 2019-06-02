@@ -19,10 +19,6 @@ exports = module.exports = function initModules (app) {
           handlers = []
         } = config
 
-        console.log('=============================')
-        console.log(JSON.stringify(config))
-        console.log('=============================')
-
         const lastHandler = handlers.pop()
 
         instance[method.toLowerCase()](route, ...handlers, async function (ctx) {
