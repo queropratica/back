@@ -1,4 +1,5 @@
 import User from '../../models/users'
+import {omit} from 'lodash'
 
 /**
  * @api {post} /users Create a new user
@@ -219,4 +220,13 @@ export async function deleteUser (ctx) {
   ctx.body = {
     success: true
   }
+}
+
+export async function getMentors (ctx) {
+  let users = await User.find({type: 'mentor'})
+  users = users.map((user) => {
+    return omit(user, ['username', 'password'])
+  })
+  ctx.status = 200
+  ctx.body = {users}
 }

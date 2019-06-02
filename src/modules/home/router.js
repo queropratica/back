@@ -9,5 +9,12 @@ export default [
     handlers: [
       health.checkHealth
     ]
+  },
+  {
+    method: 'GET',
+    route: '/seed',
+    handlers: [
+      health.seed
+    ]
   }
 ]

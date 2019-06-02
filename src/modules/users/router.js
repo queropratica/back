@@ -21,6 +21,13 @@ export default [
   },
   {
     method: 'GET',
+    route: '/mentors',
+    handlers: [
+      user.getMentors
+    ]
+  },
+  {
+    method: 'GET',
     route: '/:id',
     handlers: [
       ensureUser,
