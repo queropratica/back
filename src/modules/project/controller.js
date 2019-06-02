@@ -1,4 +1,5 @@
 import Project from '../../models/Project'
+import {uploadFile} from '../../utils/filestack'
 
 const Controller = {
 
@@ -29,7 +30,20 @@ const Controller = {
     const _id = ctx.params._id
     await Project.remove({_id})
     ctx.body = {status: 201, body: 'removed'}
+  },
+
+  uploadFile: async (ctx) => {
+    const file = ctx.request.files.file
+
+    const { key, url } = await uploadFile({
+      fileName: file.name,
+      filePath: file.path,
+      fileType: file.type
+    })
+
+    ctx.body = { key, url }
   }
+
 }
 
 module.exports = Controller
