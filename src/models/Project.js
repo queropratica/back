@@ -1,5 +1,17 @@
 import mongoose from 'mongoose'
-import User from './users'
+
+const Attachment = new mongoose.Schema({
+  name: { type: String },
+  date: { type: Date, default: Date.now },
+  url: { type: String }
+})
+
+const Step = new mongoose.Schema({
+  name: { type: String },
+  description: { type: String },
+  date: { type: Date, default: Date.now },
+  attachments: { type: [Attachment] }
+})
 
 const Project = new mongoose.Schema({
   type: { type: String }, // subject
@@ -9,7 +21,7 @@ const Project = new mongoose.Schema({
   tags: { type: [String] },
   fullDescription: { type: String },
   body: { type: String },
-  step: { type: String },
+  steps: { type: [Step] },
   isPending: { type: Boolean, default: false },
   lastInput: { type: String }
 })
