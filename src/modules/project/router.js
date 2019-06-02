@@ -1,4 +1,3 @@
-import { ensureUser } from '../../middleware/validators'
 import * as project from './controller'
 
 export const baseUrl = '/projects'
@@ -13,9 +12,15 @@ export default [
   },
   {
     method: 'POST',
+    route: '/upload',
+    handlers: [
+      project.uploadFile
+    ]
+  },
+  {
+    method: 'POST',
     route: '/',
     handlers: [
-      ensureUser,
       project.createProject
     ]
   },
@@ -23,7 +28,6 @@ export default [
     method: 'GET',
     route: '/:id',
     handlers: [
-      ensureUser,
       project.getProject
     ]
   },
@@ -31,7 +35,6 @@ export default [
     method: 'PUT',
     route: '/:id',
     handlers: [
-      ensureUser,
       project.updateProject
     ]
   },
@@ -39,7 +42,6 @@ export default [
     method: 'DELETE',
     route: '/:id',
     handlers: [
-      ensureUser,
       project.deleteProject
     ]
   }

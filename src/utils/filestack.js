@@ -3,7 +3,14 @@ const token = {}
 
 const FileStack = {
   async uploadFile ({filePath}) {
+    console.log('=============================')
+    console.log(JSON.stringify(filePath))
+    console.log('=============================')
     const result = client.upload(filePath, {}, {}, token)
+
+    console.log('=============================')
+    console.log(JSON.stringify(result))
+    console.log('=============================')
     return result
   }
 }

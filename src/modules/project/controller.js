@@ -1,5 +1,6 @@
 import Project from '../../models/Project'
 import {uploadFile} from '../../utils/filestack'
+import {get} from 'lodash'
 
 const Controller = {
 
@@ -35,10 +36,14 @@ const Controller = {
   uploadFile: async (ctx) => {
     const file = ctx.request.files.file
 
+    console.log('=============================')
+    console.log(JSON.stringify(ctx.request))
+    console.log('=============================')
+
     const { key, url } = await uploadFile({
-      fileName: file.name,
-      filePath: file.path,
-      fileType: file.type
+      fileName: get(file, 'name'),
+      filePath: get(file, 'path'),
+      fileType: get(file, 'type')
     })
 
     ctx.body = { key, url }
